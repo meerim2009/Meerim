@@ -9,6 +9,11 @@ elif x == '*':
     print(a*b)
 elif x == '/':
     print(a/b)
+elif x == '//':
+    print(a//b)
+elif x == '%':
+    print(a%b)
+
 else:
     print("Повторите еще раз")
 
