@@ -3,12 +3,17 @@ print("*" * 10, " Игра Крестики-нолики для двух игр�
 board = list(range(1, 10))
 
 
-def draw_board(board):
-    print("-" * 13)
-    for i in range(3):
-print("|", board[0 + i * 0], "|", board[1 + i * 1], "|", board[2 + i * 2], "|")
-print("-" * 13)
-
+state = {
+     '1': "X",
+     "2": "X",
+     "3": "X",
+     "4": " ",
+     "5": "O",
+     "6": "X",
+     "7": "O",
+     "8": " ",
+     "9": "O",
+}
 
 
 def take_input(player_token):
@@ -42,7 +47,7 @@ def main(board):
     counter = 0
     win = False
     while not win:
-        draw_board(board)
+        state(board)
         if counter % 2 == 0:
             take_input("X")
         else:
@@ -57,7 +62,7 @@ def main(board):
         if counter == 9:
             print("Ничья!")
             break
-    draw_board(board)
+    state(board)
 
 
 main(board)
