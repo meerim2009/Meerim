@@ -1,6 +1,12 @@
+def fraction(num, den):
+    pass
+
+
 class Fraction:
 
-    def init(self,num,den):  # num числитель, den знаменатель
+    def __init__(self,num,den):  # num числитель, den знаменатель
+        pass
+
         if den == 0:
             raise ValueError("Знаменатель не может быть нулем")
 
@@ -11,25 +17,29 @@ class Fraction:
         return str(self.num) + '/' + str(self.den)
 
 
-    def add(self,fraction2):
-        a1 = self.num * fraction2.den + self.den * fraction2.den
-        b1 = fraction2.den * self.den
-        return Fraction(a1, b1)
+    def __add__(self,other):
+        fraction1 = Fraction(num=1, den=2)
+        fraction2 = Fraction(num=2, den=3)
+        print(Fraction.__add__())
+        return Fraction(self.num * fraction2.den + self.den * fraction2.den, fraction2.den * self.den)
 
-    def sub(self,fraction2):
-        a2 = self.num * fraction2.den - self.den * fraction2.den
-        b2 = fraction2.den * self.den
-        return Fraction(a2, b2)
+    def __sub__(self, other):
+        fraction1 = Fraction(num=2, den=3)
+        fraction2 = Fraction(num=2, den=3)
+        print(Fraction.__sub__())
+        return Fraction(self.num * fraction2.den - self.den * fraction2.den, fraction2.den * self.den)
 
-    def mul(self,fraction2):
-        a = self.num*fraction2.num
-        b = self.den*fraction2.den
+    def __mul__(self, other):
+        fraction1 = Fraction(num=4, den=5)
+        fraction2 = Fraction(num=5, den=6)
+        print(Fraction.__mul__())
+        return Fraction(self.num*fraction2.num,self.den*fraction2.den)
 
-        return Fraction(a,b)
-
-    def truediv(self,fraction2):
-        a3 = self * self.invert(fraction2)
-        return Fraction(a3)
+    def __truediv__(self, other):
+        fraction1 = Fraction(num=1, den=2)
+        fraction2 = Fraction(num=2, den=3)
+        print(Fraction.__truediv__())
+        return Fraction(self * self.invert(fraction2))
 
     def repr(self):
         return '{}/{}'.format(self.num, self.den)
