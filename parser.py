@@ -1,7 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 
-url = "https://24.kg"
+url = "https://24.kg"\\\
+
 response = requests.get(url).text
 soup = BeautifulSoup(response, "html.parser")
 last_news_list = soup.find("div", {"class": "row lineNews"}).findChildren("div", {"class": "one"})
